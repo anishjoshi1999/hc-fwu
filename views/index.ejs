@@ -1,0 +1,54 @@
+<%layout('layouts/boilerplate')%>
+  <div class="container mt-5 vh-100">
+    <h1 class="text-center">Submit Your Notes</h1>
+    <div class="mt-5">
+      <form class="row g-3" action="" method="POST" name="formName">
+        <div class="col-md-6">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" required name="firstName">
+        </div>
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" required name="lastName">
+        </div>
+        <div class="col-md-8">
+          <label for="emailInfo" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="emailInfo" required name="email">
+        </div>
+        <div class="col-md-4">
+          <label for="phoneNumber" class="form-label">Phone Number (Optional)</label>
+          <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+            placeholder="Enter your Phone number">
+        </div>
+
+        <div class="col-md-6">
+          <label for="college" class="form-label">College</label>
+          <input type="text" name="college" class="form-control" id="college"
+            placeholder="Which college are you currently studying" required>
+        </div>
+        <div class="col-md-6">
+          <label for="faculty" class="form-label">Faculty</label>
+          <input type="text" class="form-control" id="faculty" name="faculty"
+            placeholder="Which faculty are you currently in ?" required>
+        </div>
+        <div class="col-md-6">
+          <label for="university">Choose your University:</label>
+          <select name="university" id="university" class="form-select" aria-label="Default select example">
+            <option value="FWU">Farwestern University</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="notes" class="form-label">Copy and paste your Notes URL here.
+          </label>
+          <input type="text" class="form-control" id="notes"
+            placeholder="Copy and paste the URL of your Google Drive Notes." name="notes" required>
+        </div>
+
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <script src="/js/form.js"></script>

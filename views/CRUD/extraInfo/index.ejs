@@ -1,0 +1,80 @@
+<%layout('layouts/boilerplate')%>
+    <!-- To choose between subject and lab -->
+
+    <head>
+        <link rel="stylesheet" href="/css/dashboard.css">
+    </head>
+    <div class="d-inline-block">
+        <form action="/upload/logout" method="POST">
+            <button>Logout</button>
+        </form>
+    </div>
+
+    <div class="container p-5 vh-100">
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+            <div class="col">
+                <a href="/upload/subject" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <div class="text-center">
+                            <div class="img-hover-zoom img-hover-zoom--colorize">
+                                <img class="shadow" src="/img/books.jpg" alt="Another Image zoom-on-hover effect">
+                            </div>
+                            <div class="card-body">
+                                <div class="my-2 text-center">
+                                    <h1>Subject</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/upload/lab" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <div class="text-center">
+                            <div class="img-hover-zoom img-hover-zoom--colorize">
+                                <img class="shadow" src="/img/lab.jpg" alt="Another Image zoom-on-hover effect">
+                            </div>
+                            <div class="card-body">
+                                <div class="my-2 text-center">
+                                    <h1>Lab</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/upload/paper" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <div class="text-center">
+                            <div class="img-hover-zoom img-hover-zoom--colorize">
+                                <img class="shadow" src="/img/books.jpg" alt="Another Image zoom-on-hover effect">
+                            </div>
+                            <div class="card-body">
+                                <div class="my-2 text-center">
+                                    <h1>Upload Paper</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/upload/notes" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm">
+                        <div class="text-center">
+                            <div class="img-hover-zoom img-hover-zoom--colorize">
+                                <img class="shadow" src="/img/books.jpg" alt="Another Image zoom-on-hover effect">
+                            </div>
+                            <div class="card-body">
+                                <div class="my-2 text-center">
+                                    <h1>Upload Notes</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>

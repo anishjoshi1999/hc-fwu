@@ -1,0 +1,22 @@
+<%layout('layouts/boilerplate')%>
+<head>
+  <title>My Earning</title>
+  <link rel="stylesheet" href="/css/earning.css">
+</head>
+  <div class="position-absolute top-50 start-50 translate-middle">
+
+    <div class="animate__animated animate bounce card " style="width: 18rem;">
+      <div class="container mt-3">
+        <img src="https://i.ibb.co/gRpP2Lm/icons8-online-128.png" class="card-img-top " alt="...">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title ms-1">Username: <%=username%>
+        </h5>
+        <p class="card-text mb-5 ms-1">Total Chapters Created Till Now: <%=uniqueSubjectCode%>
+        </p>
+        <p class="card-text mb-5 ms-1">Total Earning Till Now: Rs<%=uniqueSubjectCode * 10%>
+        </p>
+        <a href="/" class="btn btn-primary mb-1 mt-1 ">Go Back to HomePage</a>
+      </div>
+    </div>
+  </div>

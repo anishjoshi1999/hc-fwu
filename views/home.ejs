@@ -1,0 +1,80 @@
+<%layout('layouts/boilerplate')%>
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+      <img src="<%=infos.homePage%>" width="607" height="510" class="d-block mx-lg-auto img-fluid" loading="lazy"
+        alt="Hamropaper">
+    </div>
+    <div class="col-12 col-lg-6">
+      <h1 class="display-5 fw-bold mb-3">Welcome to <%=title%>!</h1>
+      <p class="lead">
+        The answer to the academic challenges faced by Far Western university students, starting with BSc CSIT resources
+        and expanding to cover all disciplines.
+      </p>
+      <% if(typeof semesters !=='undefined' && semesters.length> 0) { %>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="#" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Coming Soon: Exam Questions</a>
+          <a href="/faculty/<%-faculty%>/semester/all" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Review
+            Syllabus</a>
+        </div>
+        <% }else { %>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="#" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Coming Soon: Exam Questions</a>
+            <a href="/faculty/all" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Review Faculties</a>
+          </div>
+          <%}%>
+    </div>
+  </div>
+  <!-- Categories Start -->
+  <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+
+    <% if(typeof semesters !=='undefined' && semesters.length> 0) { %>
+      <% semesters.forEach(function(semester, index) { %>
+        <a href="/faculty/<%-faculty%>/semester/<%- semester.number %>" class="col text-center semester__link">
+          <div class="semester__img shadow">
+            <img src="<%- semester.image %>" alt="Semester <%- semester.number %>" loading="lazy">
+          </div>
+          <div class="pt-1">Semester <%- semester.number %></div>
+        </a>
+        <% }) %>
+          <a href="/faculty/<%-faculty%>/semester/all" class="col text-center semester__link">
+            <div class="semester__img shadow">
+              <img src="<%=infos.viewAll%>" alt="View All Categories" loading="lazy">
+            </div>
+            <div class="pt-1">View All Semesters</div>
+          </a>
+
+          <% }else{ %>
+            <% faculties.forEach(function(faculty, index) { %>
+              <a href="/faculty/<%-faculty.course%>" class="col text-center semester__link">
+                <div class="semester__img shadow">
+                  <img src="<%- faculty.image %>" alt="<%- faculty.course %>" loading="lazy">
+                </div>
+                <div class="pt-1"><%- faculty.course %></div>
+              </a>
+              <% }) %>
+                <a href="/faculty/all" class="col text-center semester__link">
+                  <div class="semester__img shadow">
+                    <img src="<%=infos.viewAll%>" alt="View All Faculties" loading="lazy">
+                  </div>
+                  <div class="pt-1">View All Faculties</div>
+                </a>
+                <%}%>
+  </div>
+
+
+  <!-- Categories End -->
+
+  <!-- Submit - Start -->
+  <section class="px-4 py-5 my-5 text-center">
+    <img src="<%=infos.bottom%>" class="d-block mx-auto mb-4 img-fluid" alt="Publish your Answers" width="566"
+      height="208" loading="lazy">
+    <h1 class="display-5 fw-bold">"Hamrocourse: Where collaboration meets education"</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Publish your notes in front of thousands of students for free.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="/notes" class="btn btn-primary btn-dark btn-lg">Submit Notes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Submit - End -->

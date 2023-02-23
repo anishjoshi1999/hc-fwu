@@ -1,0 +1,20 @@
+<%layout('layouts/boilerplate')%>
+  <div class="container">
+    <h1>Upload Chapter's Concept in Depth</h1>
+    <form action="/upload/logout" method="POST">
+      <button>Logout</button>
+    </form>
+    <form action="/upload/chapter/<%=code%>/<%=id%>/inside" method="POST">
+      <%for(let i=1;i <=id;i++){%>
+        <div class="mb-3">
+          <label for="4" class="form-label">Enter Chapter</label>
+          <input name="chapter" id="4" class="form-control" type="number" value="<%=i%>" />
+        </div>
+        <div class="mb-3">
+          <label for="3" class="form-label">Enter Subtitles</label>
+          <textarea name="subtitle" id="3" cols="30" rows="15" class="form-control"></textarea>
+        </div>
+        <%}%>
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>

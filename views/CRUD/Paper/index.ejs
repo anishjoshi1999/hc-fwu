@@ -1,0 +1,46 @@
+<%layout('layouts/boilerplate')%>
+  <div class="vh-100">
+    <div class="container">
+      <h1>Upload Paper of a Specific Subject</h1>
+      <form action="/upload/logout" method="POST">
+        <button>Logout</button>
+      </form>
+      <form action="/upload/paper" method="POST">
+        <div class="mb-3">
+          <label for="7" class="form-label">Which University is this Subject ?</label>
+          <input type="text" class="form-control" id="7" name="university" value="FWU">
+        </div>
+        <div class="mb-3">
+          <label for="programme" class="form-select-label">Which Programme is this ?</label>
+          <select name="programme" id="programme" class="form-select">
+            <option value="" selected>Select your Programme</option>
+            <option value="BSCCSIT">BSc.CSIT</option>
+            <option value="BCT">Computer Engineering</option>
+            <option value="BSc.Ag">BSc.Ag</option>
+            <option value="B.Ed.CSIT">B.Ed.CSIT</option>
+            <option value="BSc.PHYSICAL">BSc:Physical Group</option>
+            <option value="BSc.BIOLOGY">BSc.Biological Group</option>
+            <option value="BCE">Civil Engineering</option>
+          </select>
+        </div>
+        <div class="my-3">
+          <label for="1" class="form-label">What is the Code of the subject ?</label>
+          <input type="text" class="form-control" id="1" name="code" required placeholder="Enter Subject Code">
+        </div>
+        <div class="my-3">
+            <label for="1" class="form-label">Which year paper is this?</label>
+            <input type="number" class="form-control" id="1" name="year" required placeholder="Enter Question paper year">
+          </div>
+          <div class="my-3">
+            <label for="1" class="form-label">Which semester is this paper?</label>
+            <input type="number" class="form-control" id="1" name="semester" required placeholder="Enter semester">
+          </div>
+
+        <div class="my-3">
+          <label for="1" class="form-label">Enter the Question Paper URL?</label>
+          <input type="text" class="form-control" id="1" name="paperURL" required placeholder="Enter Question paper url">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>

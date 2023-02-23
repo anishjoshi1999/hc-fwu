@@ -1,0 +1,58 @@
+<%layout('layouts/boilerplate')%>
+  <div>
+    <div>
+      <h1 class="pb-4">Explore</h1>
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>">
+              <%=faculty%>
+            </a></li>
+          <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>/semester/<%=id%>">Semester <%=id%></a></li>
+          <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>">
+              <%=course_code%>
+            </a></li>
+          <li class="breadcrumb-item"><a href="#">Options</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Explore Options</li>
+        </ol>
+      </nav>
+      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
+        <a href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>/syllabus"
+          class="col text-center semester__link">
+          <div class="semester__img shadow">
+            <img src="https://thumbs.dreamstime.com/b/text-syllabus-cubes-text-syllabus-cubes-156295157.jpg"
+              alt="syllabus" loading="lazy">
+          </div>
+          <div class="pt-1">Syllabus</div>
+        </a>
+        <%if(lab==='on' ) {%>
+          <a href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>/lab" class="col text-center semester__link">
+            <div class="semester__img shadow">
+              <img
+                src="https://media.istockphoto.com/id/1303861823/photo/row-of-computer-monitors-standing-on-desks-against-large-windows-in-call-center.jpg?b=1&s=170667a&w=0&k=20&c=KP33JfzElPYM9d3lsB8LsiMYw0KCtGoiURJvwa3Z0Zs="
+                alt="lab" loading="lazy">
+            </div>
+            <div class="pt-1">Lab</div>
+          </a>
+          <%}%>
+            <a href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>/oldquestions" class="col text-center semester__link">
+              <div class="semester__img shadow">
+                <img
+                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  alt="oldquestions" loading="lazy">
+              </div>
+              <div class="pt-1">Old Questions</div>
+            </a>
+            <a href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>/notes" class="col text-center semester__link">
+              <div class="semester__img shadow">
+                <img
+                  src="https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bm90ZXN8ZW58MHx8MHx8&w=1000&q=80"
+                  alt="notes" loading="lazy">
+              </div>
+              <div class="pt-1">Notes</div>
+            </a>
+      </div>
+    </div>
+
+  </div>

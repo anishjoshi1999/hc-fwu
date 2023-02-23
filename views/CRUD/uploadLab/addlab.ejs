@@ -1,0 +1,19 @@
+<%layout('layouts/boilerplate')%>
+  <div>
+    <div class="container">
+      <h1>Upload Lab Titles of a <%=code%>
+      </h1>
+      <form action="/upload/logout" method="POST">
+        <button>Logout</button>
+      </form>
+      <form action="/upload/lab/<%=code%>" method="POST">
+        <%for(let i=1;i <=totallabs;i++){%>
+          <div class="my-3">
+            <label for="1" class="form-label">Enter lab title number <%=i%>.</label>
+            <input type="text" class="form-control" id="1" name="title" required placeholder="Enter lab title <%=i%>">
+          </div>
+          <%}%>
+            <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>

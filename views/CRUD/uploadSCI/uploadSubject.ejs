@@ -1,0 +1,132 @@
+<%layout('layouts/boilerplate')%>
+  <div class="container">
+    <form action="/upload/logout" method="POST">
+      <button>Logout</button>
+    </form>
+    <%if(!page){%>
+      <h1>Upload Entire Subject's Content </h1>
+      <form action="/upload/subject" method="POST">
+        <div class="mb-3">
+          <label for="7" class="form-label">Which University is this Subject ?</label>
+          <input type="text" class="form-control" id="7" name="university" value="FWU">
+        </div>
+        <div class="mb-3">
+          <label for="programme" class="form-select-label">Which Programme is this ?</label>
+          <select name="programme" id="programme" class="form-select">
+            <option value="" selected>Select your Programme</option>
+            <option value="BSCCSIT">BSc.CSIT</option>
+            <option value="BCT">Computer Engineering</option>
+            <option value="BSc.Ag">BSc.Ag</option>
+            <option value="B.Ed.CSIT">B.Ed.CSIT</option>
+            <option value="BSc.PHYSICAL">BSc:Physical Group</option>
+            <option value="BSc.BIOLOGY">BSc.Biological Group</option>
+            <option value="BCE">Civil Engineering</option>
+          </select>
+        </div>
+        <div class="my-3">
+          <label for="1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="7" name="name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="2" class="form-label">Subject Code</label>
+          <input type="text" class="form-control" id="2" name="code" required>
+        </div>
+        <div class="mb-3">
+          <label for="3" class="form-label">Total Marks</label>
+          <input type="number" class="form-control" id="3" name="totalmarks" required min="0">
+        </div>
+        <div class="mb-3">
+          <label for="4" class="form-label">Pass Marks</label>
+          <input type="number" class="form-control" id="4" name="passmarks" required min="0">
+        </div>
+        <div class="mb-3">
+          <label for="4" class="form-label">Total Chapters</label>
+          <input type="number" class="form-control" id="4" name="totalchapters" required min="0">
+        </div>
+        <div class="mb-3">
+          <label for="5" class="form-label">Semester</label>
+          <input type="number" class="form-control" id="5" name="semester" required>
+        </div>
+        <div class="mb-3">
+          <label for="6" class="form-label">Book Url</label>
+          <input type="text" class="form-control" id="6" name="image">
+        </div>
+
+        <div class="mb-3">
+          <label for="labs" class="form-select-label">Does it have a lab?:</label>
+          <select name="lab" id="labs" class="form-select">
+            <option value="on" selected>Yes</option>
+            <option value="off">No</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <%}else{%>
+        <h1>Edit Page 1 Content</h1>
+        <form action="/upload/edit/<%=page%>?_method=PATCH" method="POST">
+          <div class="mb-3">
+            <label for="7" class="form-label">Which University is this Subject ?</label>
+            <input type="text" class="form-control" id="7" name="university" value="FWU">
+          </div>
+          <div class="mb-3">
+            <label for="programme" class="form-select-label">Which Programme is this ?</label>
+            <select name="programme" id="programme" class="form-select">
+              <option value="<%=foundSubject.programme%>" selected>Previously you have selected
+                <%=foundSubject.programme%>
+              </option>
+              <option value="BSCCSIT">BSCCSIT</option>
+              <option value="BSCAG">BSCAG</option>
+              <option value="B.Ed.CSIT">B.Ed.CSIT</option>
+              <option value="BSCPHYSICAL">BSC - Physical Group</option>
+              <option value="BSCBIOLOGY">BSC - Biological Group</option>
+              <option value="BCE">Civil Engineering</option>
+            </select>
+          </div>
+          <div class="my-3">
+            <label for="1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="7" name="name" required value="<%=foundSubject.name%>">
+          </div>
+
+          <div class="mb-3">
+            <label for="2" class="form-label">Subject Code</label>
+            <input type="text" class="form-control" id="2" name="code" required value="<%=foundSubject.code%>">
+          </div>
+          <div class="mb-3">
+            <label for="3" class="form-label">Total Marks</label>
+            <input type="number" class="form-control" id="3" name="totalmarks" required min="0"
+              value="<%=foundSubject.totalmarks%>">
+          </div>
+          <div class="mb-3">
+            <label for="4" class="form-label">Pass Marks</label>
+            <input type="number" class="form-control" id="4" name="passmarks" required min="0"
+              value="<%=foundSubject.passmarks%>">
+          </div>
+          <div class="mb-3">
+            <label for="4" class="form-label">Total Chapters</label>
+            <input type="number" class="form-control" id="4" name="totalchapters" required min="0"
+              value="<%=foundSubject.totalchapters%>">
+          </div>
+          <div class="mb-3">
+            <label for="5" class="form-label">Semester</label>
+            <input type="number" class="form-control" id="5" name="semester" required
+              value="<%=foundSubject.semester%>">
+          </div>
+          <div class="mb-3">
+            <label for="6" class="form-label">Book Url</label>
+            <input type="text" class="form-control" id="6" name="image" value="<%=foundSubject.image%>">
+          </div>
+          <div class="mb-3">
+            <label for="labs" class="form-select-label">Does it have a lab?:</label>
+            <select name="lab" id="labs" class="form-select">
+              <option value="<%=foundSubject.lab%>" selected>
+                <%=foundSubject.lab%>
+              </option>
+              <option value="on">Yes</option>
+              <option value="off">No</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <%}%>
+  </div>

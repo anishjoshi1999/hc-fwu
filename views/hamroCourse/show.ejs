@@ -1,0 +1,70 @@
+<%layout('layouts/boilerplate')%>
+  <div>
+    <h1 class="pb-4">Explore <%=options%>
+    </h1>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>">
+            <%=faculty%>
+          </a></li>
+        <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>/semester/<%=id%>">Semester <%=id%></a></li>
+        <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>">
+            <%=course_code%>
+          </a></li>
+        <li class="breadcrumb-item"><a href="#">
+            <%=options.toUpperCase()%>
+          </a></li>
+        <li class="breadcrumb-item active" aria-current="page">Explore <%=options.toUpperCase()%>
+        </li>
+      </ol>
+    </nav>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="d-none d-sm-table-cell">No</th>
+          <th scope="col">Chapter</th>
+          <th scope="col" class="d-none d-md-table-cell">Importance</th>
+          <th scope="col" class="d-none d-md-table-cell">Hours</th>
+          <th scope="col">View More</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% chapters.forEach((chapter,index)=> {%>
+          <tr>
+            <th scope="row" class="d-none d-sm-table-cell">
+              <%=(index+1)%>
+            </th>
+            <td>
+              <%-chapter.title%>
+            </td>
+            <td class="d-none d-md-table-cell">
+              <%if(((Number(chapter.hours) / totalHours) * 100).toFixed(2) <=5){%>
+                <div class="p-2 bg-primary text-white"> <%-((Number(chapter.hours) / totalHours) * 100).toFixed(2)%> %
+                </div>
+                <%} else if(((Number(chapter.hours) / totalHours) * 100).toFixed(2) <=10){%>
+                  <div class="p-2 bg-success text-white"> <%-((Number(chapter.hours) / totalHours) * 100).toFixed(2)%> %
+                  </div>
+                  <%}else if(((Number(chapter.hours) / totalHours) * 100).toFixed(2) <=15){%>
+                    <div class="p-2 bg-warning text-white"> <%-((Number(chapter.hours) / totalHours) * 100).toFixed(2)%>
+                        % </div>
+                    <%} else {%>
+                      <div class="p-2 bg-danger text-white"> <%-((Number(chapter.hours) / totalHours) *
+                          100).toFixed(2)%> % </div>
+                      <%}%>
+            </td>
+            <td class="d-none d-md-table-cell">
+              <%-chapter.hours%>
+            </td>
+            <td>
+              <a href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>/<%=options%>/<%=(index+1)%>"
+                class="btn btn-info">Click Me</a>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>

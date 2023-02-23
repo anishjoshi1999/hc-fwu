@@ -1,0 +1,48 @@
+<%layout('layouts/boilerplate')%>
+  <div>
+    <h1 class="pb-4">Explore Chapter <%=chapter%>
+    </h1>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>">
+            <%=faculty%>
+          </a></li>
+        <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>/semester/<%=id%>">Semester <%=id%></a></li>
+        <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>">
+            <%=course_code%>
+          </a></li>
+        <li class="breadcrumb-item"><a
+            href="/faculty/<%=faculty%>/semester/<%=id%>/<%=course_code%>/syllabus">SYLLABUS</a></li>
+        <li class="breadcrumb-item"><a href="#">Chapter <%=chapter%></a></li>
+        <li class="breadcrumb-item active" aria-current="page">Explore Chapter <%=chapter%>
+        </li>
+      </ol>
+    </nav>
+    <% if(typeof topics !=='undefined' && topics.length> 0) { %>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="d-none d-sm-table-cell">No</th>
+            <th scope="col">Chapter <%=chapter%>
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% topics[0].subtitle.forEach((topic,index)=> {%>
+            <tr>
+              <th scope="row" class="d-none d-sm-table-cell">
+                <%=(index+1)%>
+              </th>
+              <td>
+                <%-topic%>
+              </td>
+            </tr>
+            <% }) %>
+        </tbody>
+      </table>
+      <%}%>
+
+  </div>

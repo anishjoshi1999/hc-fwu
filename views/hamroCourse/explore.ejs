@@ -1,0 +1,46 @@
+<%layout('layouts/boilerplate')%>
+  <div>
+    <% if(typeof semesters !=='undefined' && semesters.length> 0) { %>
+      <h1 class="pb-4">Explore Semester</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/faculty">Home</a></li>
+          <li class="breadcrumb-item"><a href="/faculty/<%=faculty%>">
+              <%=faculty%>
+            </a></li>
+          <li class="breadcrumb-item"><a href="#">Semesters</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Explore Semesters</li>
+        </ol>
+      </nav>
+      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
+
+        <% semesters.forEach(function(semester, index) { %>
+          <a href="/faculty/<%=faculty%>/semester/<%=semester.number%>" class="col text-center semester__link">
+            <div class="semester__img shadow">
+              <img src="<%- semester.image %>" alt="Semester <%- semester.number %>" loading="lazy">
+            </div>
+            <div class="pt-1">Semester <%- semester.number %></div>
+          </a>
+          <% }) %>
+      </div>
+      <% } else{%>
+        <h1 class="pb-4">Explore Faculties</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Faculties</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Explore Faculties</li>
+          </ol>
+        </nav>
+        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
+          <% faculty.forEach(function(faculty, index) { %>
+            <a href="/faculty/<%-faculty.course%>" class="col text-center semester__link">
+              <div class="semester__img shadow">
+                <img src="<%- faculty.image %>" alt="<%- faculty.course %>" loading="lazy">
+              </div>
+              <div class="pt-1"><%-faculty.course %></div>
+            </a>
+            <% }) %>
+        </div>
+        <%}%>
+  </div>

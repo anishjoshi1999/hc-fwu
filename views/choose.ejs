@@ -1,0 +1,30 @@
+<%layout('layouts/boilerplate')%>
+  <div>
+    <h1 class="pb-4">Select a BSC program.</h1>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Faculty</a></li>
+        <li class="breadcrumb-item"><a href="#">Programme</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Explore Programme</li>
+      </ol>
+    </nav>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
+      <a href="/faculty/<%=programme[0]%>" class="col text-center semester__link">
+        <div class="semester__img shadow">
+          <img
+            src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            alt="physics" loading="lazy">
+        </div>
+        <div class="pt-1">PHYSICAL GROUP</div>
+      </a>
+      <a href="/faculty/<%=programme[1]%>" class="col text-center semester__link">
+        <div class="semester__img shadow">
+          <img
+            src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+            alt="biology" loading="lazy">
+        </div>
+        <div class="pt-1">BIOLOGICAL GROUP</div>
+      </a>
+    </div>
+  </div>
