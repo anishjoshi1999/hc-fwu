@@ -4,7 +4,7 @@
   "description": "For FWU Students",
   "main": "index.js",
   "scripts": {
-    "build": "netlify deploy --prod"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -27,10 +27,7 @@
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "mongoose": "^6.8.2",
-    "netlify-cli": "^13.0.0",
-    "netlify-lambda": "^2.0.16",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0",
-    "serverless-http": "^3.1.1"
+    "passport-local": "^1.0.0"
   }
 }
